@@ -1,7 +1,7 @@
 create table Users (
     user_id int primary key,
     name text not null,
-    phone_number text,
+    phone_number int,
     role text not null check (role IN ('patient', 'doctor', 'nurse', 'admin'))
 );
 
