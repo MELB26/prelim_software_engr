@@ -2,13 +2,13 @@ create table Users (
     user_id int primary key,
     name text not null,
     phone_number int,
-    role text not null check (role IN ('patient', 'doctor', 'nurse', 'admin'))
+    role text not null check (role in ('patient', 'doctor', 'nurse', 'admin'))
 );
 
 create table MedicalResources (
     resource_id int primary key,
     resource_name text not null, 
-    status text not null check (status IN ('available', 'reserved', 'maintenance')) default 'available'
+    status text not null check (status in ('available', 'reserved', 'maintenance')) default 'available'
 );
 
 create table Reservations (
@@ -17,15 +17,15 @@ create table Reservations (
     resource_id int,
     reservation_start datetime not null,
     reservation_end datetime not null,
-    status text not null check (status IN ('pending', 'confirmed', 'completed', 'canceled')) default 'pending'
+    status text not null check (status in ('pending', 'confirmed', 'completed', 'canceled')) default 'pending'
 );
 
 create table Payments (
     payment_id int primary key,
     reservation_id int,
     amount DECIMAL(10, 2) not null,
-    payment_method text not null check (payment_method IN ('cash', 'insurance', 'credit')),
-    payment_status text not null check (payment_status IN ('pending', 'completed', 'failed')) default 'pending',
+    payment_method text not null check (payment_method in ('cash', 'insurance', 'credit')),
+    payment_status text not null check (payment_status in ('pending', 'completed', 'failed')) default 'pending',
     payment_date datetime default (current_timestamp)
 );
 
