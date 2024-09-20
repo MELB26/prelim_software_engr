@@ -35,7 +35,7 @@ create table ResourceAvailability (
     available_date date not null,
     available_start time not null,
     available_end time not null
-);a
+);
 
 
 
